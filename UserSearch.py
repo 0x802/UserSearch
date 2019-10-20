@@ -1,12 +1,9 @@
 #!/usr/bin/python3
 
-import os
-import sys
-import random
-import requests
-import concurrent.futures
+# Imports 
+import os, sys, random, requests, concurrent.futures
 
-# COLORS
+# Colors
 R = '\033[1;31m'
 T = '\033[1;33m'
 B = '\033[1;34m'
@@ -14,6 +11,7 @@ G = '\033[1;32m'
 W = '\033[1;37m'
 N = '\033[0m'
 
+# Start 
 class GETTHEUSER:
     WEBSITES = [
         'github.com/Y', 
@@ -102,13 +100,9 @@ class GETTHEUSER:
         self.URL    = []
         self.SIS    = requests.Session()
         self.INT    = int()
-
-   
    
     def SAVE(self, DATA):[open(self.Save, 'a').write(f'{i}\n') for i in DATA]
         
-
-
     def GET_RUN_INDEX(self):
     
         print(f"{W}{'-'*50}{N}\n[ {B}+{N} ] Target  : \
@@ -116,15 +110,18 @@ class GETTHEUSER:
 {self.Save}\n[{B}==>{N}] Plaes Wite....\n{W}{'-'*50}{N}")
 
         input(f"\033[7m{B}------ Enter To (Start) ------{N}")
-    
+        
         print(f"\n\n\n[ {T}+{N} ] GET USER:{B}\n\t|\n\t|\n\t|{N}")
 
-
-    def GET_URL_TARGET(self, MYINT):
-        self.SIS.headers['User-Agent'] = "Mozilla/5.0 (Windows NT 6.1; WOW64; \
-Trident/7.0; rv:11.0) like Gecko"
+    def GET_URL_TARGET(self, MYINT): 
+      ''' The User-Agent request header contains a characteristic 
+          string that allows the network protocol peers to identify 
+          the application type.'''
+              
+        self.SIS.headers['User-Agent'] = "Mozilla/5.0 (Windows NT 6.1; WOW64; \ 
+Trident/7.0; rv:11.0) like Gecko" 
         try:
-            GET = self.SIS.get(f"https://{MYINT.replace('Y', self.target)}").status_code
+            GET = self.SIS.get(f"https://{MYINT.replace('Y', self.target)}").status_code # 200 or 404 etc...
 
         except requests.exceptions.ConnectionError:
             return f"{B}\t|{W}-{N}[{R}{'ERROR'}{N}]{W}-> {R}!!!{N} Connection {G}Error{N}"
