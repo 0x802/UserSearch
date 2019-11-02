@@ -118,12 +118,11 @@ class GETTHEUSER:
         print(f"\n\n\n[ {T}+{N} ] GET USER:{B}\n\t|\n\t|\n\t|{N}")
 
     def GET_URL_TARGET(self, MYINT): 
-      ''' The User-Agent request header contains a characteristic 
+        ''' The User-Agent request header contains a characteristic 
           string that allows the network protocol peers to identify 
           the application type.'''
               
-        self.SIS.headers['User-Agent'] = "Mozilla/5.0 (Windows NT 6.1; WOW64; \ 
-Trident/7.0; rv:11.0) like Gecko" 
+        self.SIS.headers['User-Agent'] = "Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko" 
         try:
             GET = self.SIS.get(f"https://{MYINT.replace('Y', self.target)}").status_code # 200 or 404 etc...
 
