@@ -4,13 +4,17 @@
 import os, sys, random, requests, concurrent.futures
 
 # Colors
-R = '\033[1;31m'
-T = '\033[1;33m'
-B = '\033[1;34m'
-G = '\033[1;32m'
-W = '\033[1;37m'
-N = '\033[0m'
+if 'win' not in sys.platform:
+    R = '\033[1;31m'
+    T = '\033[1;33m'
+    B = '\033[1;34m'
+    G = '\033[1;32m'
+    W = '\033[1;37m'
+    N = '\033[0m'
+else:
+    R = T = B = G = W = N = str()
 
+    
 # Start 
 class GETTHEUSER:
     WEBSITES = [
